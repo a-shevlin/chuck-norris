@@ -1,0 +1,9 @@
+body {
+  background-image: url(https://itswynnesworld.files.wordpress.com/2011/07/chuck-norris.jpg);
+  background-repeat: no-repeat;
+  background-size: 120%;
+}
+
+.container {
+  background-color: beige;
+}
