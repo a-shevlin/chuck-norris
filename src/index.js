@@ -41,18 +41,20 @@ function audioPlay(number) {
 $(document).ready(function() {
   $('#find').click(function() {
     let category = $("#category option:selected").val();
-    let number = getRandomInt(120);
+    let norrisNumber = getRandomInt(120);
+    let categoryNumber = getRandomInt(300);
     Norris.getRandom(category)
     .then(function(response) {
       getElements(response);
+
     });
-    NorrisGiphy.getRandom(number)
+    NorrisGiphy.getRandom(norrisNumber)
     .then(function(response) {
       $('#randomPic').html(`<img src="${response.data[0].images.downsized_medium.url}"></img>`);
     })
-    RandomGiphy.getRandom()
+    RandomGiphy.getRandom(category, categoryNumber)
     .then(function(response) {
-      $('#norrisPic').html(`<img src="${response.data.images.downsized_medium.url}"></img>`);
+      $('#norrisPic').html(`<img src="${response.data[0].images.downsized_medium.url}"></img>`);
     })
   });
 });

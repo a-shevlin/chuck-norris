@@ -1,6 +1,7 @@
 export default class RandomGiphy {
-  static getRandom() {
-    let url = `https://api.giphy.com/v1/gifs/random?api_key=cVhpPNreTmpvCNqaoxK7PXB9c3dsXHKl`;
+  static getRandom(category, number) {
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=cVhpPNreTmpvCNqaoxK7PXB9c3dsXHKl&q=${category}&offset=${number}`;
+    console.log(url);
     return fetch(url)
     .then(function(response) {
       if(!response.ok) {
