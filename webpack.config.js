@@ -35,6 +35,14 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "eslint-loader"
+      },
+      {
+        test: /\.(mp3)$/,
+        loader: 'file-loader',
+        options: {
+          name: '/[name].[ext]',
+          outputPath: 'audio'
+        }
       }
     ]
   }
