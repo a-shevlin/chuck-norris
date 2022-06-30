@@ -8,6 +8,9 @@ import RandomGiphy from './js/random-giphy';
 
 function getElements(response) {
     $('#norrisQuote').text(response.value);
+    let speech = new SpeechSynthesisUtterance();
+    speech.text = response.value;
+    window.speechSynthesis.speak(speech);
 }
 
 function getRandomInt(max) {
@@ -21,6 +24,7 @@ $(document).ready(function() {
     Norris.getRandom(category)
     .then(function(response) {
       getElements(response);
+      
     });
     NorrisGiphy.getRandom(number)
     .then(function(response) {
